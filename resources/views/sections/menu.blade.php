@@ -38,7 +38,7 @@
             <a href="#" class="block tracking-wide mt-4 lg:inline-block lg:mt-0 text-white hover:border-b-2 mr-4">
                 Carreras
             </a>
-            <a href="#" class="sm:mb-4 md:mb-0 block tracking-wide mt-4 lg:inline-block lg:mt-0 text-white hover:border-b-2 mr-10">
+            <a href="{{ route('opciones-titulacion.index') }}" class="sm:mb-4 md:mb-0 block tracking-wide mt-4 lg:inline-block lg:mt-0 text-white hover:border-b-2 mr-10">
                 Opciones de titulación
             </a>
             <div class="relative group">
