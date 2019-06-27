@@ -1,6 +1,6 @@
 <nav class="flex items-center justify-between flex-wrap bg-teal-500 px-16 py-4">
   <div class="flex items-center flex-no-shrink text-white mr-6">
-    <span class="font-semibold text-xl tracking-wider uppercase">Titulaciones</span>
+    <a href="/" class="font-semibold text-xl tracking-wider uppercase">Titulaciones</a>
   </div>
   <div class="block lg:hidden">
     <button onclick="navToggle();" class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
@@ -32,10 +32,10 @@
                 </a>
             @endif
         @else
-            <a href="#" class="block tracking-wide mt-4 lg:inline-block lg:mt-0 text-white hover:border-b-2 mr-4">
+            <a href="/#" class="block tracking-wide mt-4 lg:inline-block lg:mt-0 text-white hover:border-b-2 mr-4">
                 Alumnos
             </a>
-            <a href="#" class="block tracking-wide mt-4 lg:inline-block lg:mt-0 text-white hover:border-b-2 mr-4">
+            <a href="/#" class="block tracking-wide mt-4 lg:inline-block lg:mt-0 text-white hover:border-b-2 mr-4">
                 Carreras
             </a>
             <a href="{{ route('opciones-titulacion.index') }}" class="sm:mb-4 md:mb-0 block tracking-wide mt-4 lg:inline-block lg:mt-0 text-white hover:border-b-2 mr-10">
@@ -44,7 +44,7 @@
             <div class="relative group">
                 <div class="leading-none cursor-pointer bg-yellow-200 hover:shadow-md hover:border-gray-700 border p-1 rounded border-soft-black">
                     <div class="inline-flex">
-                        <img class="inline-block w-8 h-8" src="images/avatar.svg" alt="Avatar de {{ Auth::user()->name }}">
+                        <img class="inline-block w-8 h-8" src="/images/avatar.svg" alt="Avatar de {{ Auth::user()->name }}">
                         <div class="block flex items-center ml-2">
                             <span class="mr-1 font-semibold text-sm text-black tracking-wide">{{ Auth::user()->name }}</span>
                             <div>

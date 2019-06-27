@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\OpcionTitulacion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Log;
 
 class OpcionTitulacionController extends Controller
 {
@@ -22,9 +24,9 @@ class OpcionTitulacionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index() {
+        $opciones = OpcionTitulacion::all();
+        return view('opcion-titulacion.index', compact('opciones'));
     }
 
     /**
@@ -34,7 +36,7 @@ class OpcionTitulacionController extends Controller
      */
     public function create()
     {
-        //
+        return view('opcion-titulacion.create');
     }
 
     /**
@@ -45,7 +47,14 @@ class OpcionTitulacionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nombre' => 'required|max:255|unique:opcion_titulacions'
+        ]);
+        $opcion = OpcionTitulacion::create([
+            'nombre' => $request->get('nombre')
+        ]);
+        Session::flash('message', 'Opción de titulación creada con éxito!');
+        return redirect()->route('opciones-titulacion.index');
     }
 
     /**
@@ -54,7 +63,7 @@ class OpcionTitulacionController extends Controller
      * @param  \App\OpcionTitulacion  $opcionTitulacion
      * @return \Illuminate\Http\Response
      */
-    public function show(OpcionTitulacion $opcionTitulacion)
+    public function show($id)
     {
         //
     }
@@ -65,9 +74,11 @@ class OpcionTitulacionController extends Controller
      * @param  \App\OpcionTitulacion  $opcionTitulacion
      * @return \Illuminate\Http\Response
      */
-    public function edit(OpcionTitulacion $opcionTitulacion)
+    public function edit($id)
     {
-        //
+        $opcion = OpcionTitulacion::find($id);
+        return view('opcion-titulacion.edit')
+            ->with('opcion', $opcion);
     }
 
     /**
@@ -77,9 +88,16 @@ class OpcionTitulacionController extends Controller
      * @param  \App\OpcionTitulacion  $opcionTitulacion
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, OpcionTitulacion $opcionTitulacion)
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'nombre' => 'required|max:255|unique:opcion_titulacions'
+        ]);
+        $opcion = OpcionTitulacion::find($id)->update([
+            'nombre' => $request->get('nombre')
+        ]);
+        Session::flash('message', 'Opción de titulación actualizada con éxito!');
+        return redirect()->route('opciones-titulacion.index');
     }
 
     /**
@@ -88,8 +106,17 @@ class OpcionTitulacionController extends Controller
      * @param  \App\OpcionTitulacion  $opcionTitulacion
      * @return \Illuminate\Http\Response
      */
-    public function destroy(OpcionTitulacion $opcionTitulacion)
+    public function destroy($id)
     {
-        //
+        try {
+            OpcionTitulacion::find($id)->delete();
+        } catch (QueryException $e) {
+            Log::info('Excepción capturada: ');
+            Log::info($e->getMessage());
+            return redirect()->back()->with('error-message', 'Ocurrió un error con la base de datos');
+        }
+        Log::info('Deleted opción: '.$id);
+        Session::flash('message', 'Opción de titulación borrada con éxito!');
+        return redirect()->route('opciones-titulacion.index');
     }
 }

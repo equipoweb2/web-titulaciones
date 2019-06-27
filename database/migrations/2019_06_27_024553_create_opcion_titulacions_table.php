@@ -15,7 +15,7 @@ class CreateOpcionTitulacionsTable extends Migration
     {
         Schema::create('opcion_titulacions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre');
+            $table->string('nombre')->unique();
             $table->timestamps();
         });
     }
