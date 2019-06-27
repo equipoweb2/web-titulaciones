@@ -13,7 +13,7 @@
         </a>
     </div>
 
-    <div class="mx-16 my-8">
+    <div class="mx-16 mb-8">
      <table class="table table-responsive">
         <thead>
             <tr>

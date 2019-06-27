@@ -91,10 +91,10 @@ return [
         'array' => 'El atributo :attribute debe tener al menos :min items.',
     ],
     'not_in' => 'The selected :attribute is invalid.',
-    'not_regex' => 'The :attribute format is invalid.',
+    'not_regex' => 'El formato de :attribute es inválido.',
     'numeric' => 'The :attribute must be a number.',
     'present' => 'The :attribute field must be present.',
-    'regex' => 'The :attribute format is invalid.',
+    'regex' => 'El formato de :attribute es inválido.',
     'required' => 'El campo :attribute es requerido.',
     'required_if' => 'The :attribute field is required when :other is :value.',
     'required_unless' => 'The :attribute field is required unless :other is in :values.',
@@ -114,7 +114,7 @@ return [
     'timezone' => 'The :attribute must be a valid zone.',
     'unique' => 'El atributo :attribute ya existe.',
     'uploaded' => 'The :attribute failed to upload.',
-    'url' => 'The :attribute format is invalid.',
+    'url' => 'El formato de :attribute es inválido.',
     'uuid' => 'The :attribute must be a valid UUID.',
 
     /*

@@ -38,8 +38,11 @@
             <a href="{{ route('carreras.index') }}" class="block tracking-wide mt-4 lg:inline-block lg:mt-0 text-white hover:border-b-2 mr-4">
                 Carreras
             </a>
-            <a href="{{ route('opciones-titulacion.index') }}" class="sm:mb-4 md:mb-0 block tracking-wide mt-4 lg:inline-block lg:mt-0 text-white hover:border-b-2 mr-10">
-                Opciones de titulación
+            <a href="{{ route('opciones-titulacion.index') }}" class="block tracking-wide mt-4 lg:inline-block lg:mt-0 text-white hover:border-b-2 mr-4">
+                Opciones de Titulación
+            </a>
+            <a href="{{ route('generaciones.index') }}" class="sm:mb-4 md:mb-0 block tracking-wide mt-4 lg:inline-block lg:mt-0 text-white hover:border-b-2 mr-10">
+                Generaciones
             </a>
             <div class="relative group">
                 <div class="leading-none cursor-pointer bg-yellow-200 hover:shadow-md hover:border-gray-700 border p-1 rounded border-soft-black">
@@ -53,7 +56,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="rounded bg-yellow-200 shadow-md absolute mt-12 top-0 right-0 min-w-full invisible group-hover:visible">
+                <div class="rounded z-40 bg-yellow-200 shadow-md absolute mt-12 top-0 right-0 min-w-full invisible group-hover:visible">
                     <ul class="list-reset">
                         <li>
                             <a href="{{ route('logout') }}" class="rounded hover:bg-yellow-500 px-4 py-3 block no-underline text-soft-black"
