@@ -18,3 +18,4 @@ Auth::routes();
 Route::resource('carreras', 'CarreraController');
 Route::resource('generaciones', 'GeneracionController');
 Route::resource('opciones-titulacion', 'OpcionTitulacionController');
+Route::resource('periodos', 'PeriodoController');

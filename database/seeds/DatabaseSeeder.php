@@ -14,5 +14,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CarreraTableSeeder::class);
         $this->call(GeneracionTableSeeder::class);
         $this->call(OpcionTitulacionTableSeeder::class);
+        $this->call(PeriodoTableSeeder::class);
     }
 }

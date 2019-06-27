@@ -41,8 +41,11 @@
             <a href="{{ route('opciones-titulacion.index') }}" class="block tracking-wide mt-4 lg:inline-block lg:mt-0 text-white hover:border-b-2 mr-4">
                 Opciones de Titulación
             </a>
-            <a href="{{ route('generaciones.index') }}" class="sm:mb-4 md:mb-0 block tracking-wide mt-4 lg:inline-block lg:mt-0 text-white hover:border-b-2 mr-10">
+            <a href="{{ route('generaciones.index') }}" class="block tracking-wide mt-4 lg:inline-block lg:mt-0 text-white hover:border-b-2 mr-4">
                 Generaciones
+            </a>
+            <a href="{{ route('periodos.index') }}" class="sm:mb-4 md:mb-0 block tracking-wide mt-4 lg:inline-block lg:mt-0 text-white hover:border-b-2 mr-10">
+                Períodos
             </a>
             <div class="relative group">
                 <div class="leading-none cursor-pointer bg-yellow-200 hover:shadow-md hover:border-gray-700 border p-1 rounded border-soft-black">
