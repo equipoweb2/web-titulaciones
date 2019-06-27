@@ -35,7 +35,7 @@
             <a href="/#" class="block tracking-wide mt-4 lg:inline-block lg:mt-0 text-white hover:border-b-2 mr-4">
                 Alumnos
             </a>
-            <a href="/#" class="block tracking-wide mt-4 lg:inline-block lg:mt-0 text-white hover:border-b-2 mr-4">
+            <a href="{{ route('carreras.index') }}" class="block tracking-wide mt-4 lg:inline-block lg:mt-0 text-white hover:border-b-2 mr-4">
                 Carreras
             </a>
             <a href="{{ route('opciones-titulacion.index') }}" class="sm:mb-4 md:mb-0 block tracking-wide mt-4 lg:inline-block lg:mt-0 text-white hover:border-b-2 mr-10">

@@ -18,7 +18,7 @@ class OpcionTitulacionTableSeeder extends Seeder
             ['id' => 3, 'nombre' => 'PROYECTO DE INVESTIGACIÓN'],
             ['id' => 4, 'nombre' => 'DISEÑO O REDISEÑO DE EQUIPO, APARATO O MAQUINARIA'],
             ['id' => 5, 'nombre' => 'CURSO ESPECIAL DE TITULACIÓN'],
-            ['id' => 6, 'nombre' => 'EXAMEN GLOBAL POR ÁREAS DE CONOCIMMIENTO'],
+            ['id' => 6, 'nombre' => 'EXAMEN GLOBAL POR ÁREAS DE CONOCIMIENTO'],
             ['id' => 7, 'nombre' => 'MEMORIA DE EXPERIENCIA PROFESIONAL'],
             ['id' => 8, 'nombre' => 'ESCOLARIDAD POR PROMEDIO'],
             ['id' => 9, 'nombre' => 'ESCOLARIDAD POR ESTUDIOS DE POSGRADO'],

@@ -15,4 +15,5 @@ Route::get('/', 'HomeController@index')->name('index');
 
 Auth::routes();
 
+Route::resource('carreras', 'CarreraController');
 Route::resource('opciones-titulacion', 'OpcionTitulacionController');
