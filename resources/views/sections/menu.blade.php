@@ -32,7 +32,7 @@
                 </a>
             @endif
         @else
-            <a href="/#" class="block tracking-wide mt-4 lg:inline-block lg:mt-0 text-white hover:border-b-2 mr-4">
+            <a href="{{ route('alumnos') }}" class="block tracking-wide mt-4 lg:inline-block lg:mt-0 text-white hover:border-b-2 mr-4">
                 Alumnos
             </a>
             <a href="{{ route('carreras.index') }}" class="block tracking-wide mt-4 lg:inline-block lg:mt-0 text-white hover:border-b-2 mr-4">
