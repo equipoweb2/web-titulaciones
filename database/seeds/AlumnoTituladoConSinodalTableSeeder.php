@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\AlumnoEgresado;
+use App\AlumnoTituladoConSinodal;
 
-class AlumnoEgresadoTableSeeder extends Seeder
+class AlumnoTituladoConSinodalTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class AlumnoEgresadoTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(AlumnoEgresado::class, 500)->create();
+        factory(AlumnoTituladoConSinodal::class, 70)->create();
     }
 }

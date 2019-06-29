@@ -104,6 +104,11 @@
                         'placeholder' => 'Selecciona una generación...'
                     ]) !!}
                 </div>
+                @error('generacion')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
                 <div class="my-4">
                     {!! Form::submit('Guardar', array(
                         'class' => 'rounded bg-teal-400 px-4 py-2 cursor-pointer hover:bg-teal-500'

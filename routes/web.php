@@ -17,6 +17,7 @@ Auth::routes();
 
 Route::get('alumnos', 'AlumnoController@index')->name('alumnos');
 Route::resource('alumnos/egresados', 'AlumnoEgresadoController');
+Route::resource('alumnos/titulados', 'AlumnoTituladoController');
 Route::resource('carreras', 'CarreraController');
 Route::resource('generaciones', 'GeneracionController');
 Route::resource('opciones-titulacion', 'OpcionTitulacionController');
