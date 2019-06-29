@@ -21,22 +21,31 @@
                     <tr></tr>
                 </thead>
                 <tbody>
-                <?php $currentCarrera = ""; ?>
+                <?php $currentCarrera = "";
+                    $colors = ['red', 'blue', 'green', 'teal', 'yellow', 'orange', 'pink', 'gray', 'indigo', 'purple'];
+                    $color = array_rand($colors);
+                ?>
 
                 @foreach ($data as $row)
                     @if ($currentCarrera === $row->carrera)
                     @else
-                    <tr>
-                        <td class="text-center bg-gray-300">{{ $row->carrera }}</td>
-                        <td class="text-center bg-gray-300">Egresados</td>
-                        <td class="text-center bg-gray-300">Titulados</td>
-                    </tr>
+                    @php $color = array_rand($colors); @endphp
+                        <tr class="pt-8 border-t-2 border-{{ $colors[$color] }}-800">
+                            <td class="text-center bg-{{ $colors[$color] }}-400">{{ $row->carrera }}</td>
+                            <td class="text-center bg-{{ $colors[$color] }}-400">Egresados</td>
+                            <td class="text-center bg-{{ $colors[$color] }}-400">Titulados</td>
+                            <td class="text-center bg-{{ $colors[$color] }}-400">Diferencia</td>
+                            <td class="text-center bg-{{ $colors[$color] }}-400">Porcentaje</td>
+                        </tr>
+
                     @endif
-                    <tr>
-                        <td class="text-center">Generación {{ $row->generacion }}</td>
-                        <td class="text-center">{{ $row->egresados }}</td>
-                        <td class="text-center">{{ $row->titulados }}</td>
-                    </tr>
+                        <tr class="hover:bg-{{ $colors[$color] }}-200">
+                            <td class="text-center">Generación {{ $row->generacion }}</td>
+                            <td class="text-center">{{ $row->egresados }}</td>
+                            <td class="text-center">{{ $row->titulados }}</td>
+                            <td class="text-center">{{ number_format($row->titulados / $row->egresados, 3) }}</td>
+                            <td class="text-center">{{ number_format($row->titulados * 100 / $row->egresados, 2) }} %</td>
+                        </tr>
 
                     @php $currentCarrera = $row->carrera; @endphp
 

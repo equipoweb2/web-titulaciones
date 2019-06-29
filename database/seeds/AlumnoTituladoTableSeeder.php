@@ -12,6 +12,6 @@ class AlumnoTituladoTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(AlumnoTitulado::class, 100)->create();
+        factory(AlumnoTitulado::class, 300)->create();
     }
 }
