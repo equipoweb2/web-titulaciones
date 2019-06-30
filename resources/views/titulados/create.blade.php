@@ -7,8 +7,8 @@
     <p class="opacity-75 uppercase tracking-wider font-bold text-lg text-center mx-16 mt-4 mb-2"><i class="fa fa-file-invoice-dollar"></i> Agregar alumno titulado</p>
 
     <div>
-        <div class="p-2 w-full flex justify-center mb-6">
-          <div class="w-1/3 bg-gray-100 p-4 shadow-lg rounded-lg">
+        <div class="px-2 w-full flex justify-center mb-6">
+          <div class="w-1/2 bg-gray-100 p-4 shadow-lg rounded-lg">
             {!! Form::open(['route' => 'titulados.store', 'files' => true]) !!}
                 <div>
                     <label class="text-sm text-soft-black" for="numero_control">Número de control</label>
@@ -67,6 +67,18 @@
                 </div>
                 @error('hora_titulacion')
                     <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+                <div>
+                    <label class="text-sm text-soft-black" for="sinodales">Sinodales (ingresar nombres completos, separados por una coma ',')</label>
+                    {!! Form::text('sinodales', null, array(
+                        'class' => 'focus:bg-gray-200 px-2 leading-tight appearance-none w-full rounded h-8 border-2 border-teal-200',
+                        'placeholder' => 'Ingresa los sinodales'
+                    )) !!}
+                </div>
+                @error('sinodales')
+                    <span class="invalid-feedback mb-2" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
