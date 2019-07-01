@@ -12,9 +12,6 @@
             </div>
         </div>
     </div>
-    @if ($errors->any())
-        {{ implode('', $errors->all('<div>:message</div>')) }}
-@endif
 
     <div>
         <div class="p-2 w-full flex justify-center mb-6">

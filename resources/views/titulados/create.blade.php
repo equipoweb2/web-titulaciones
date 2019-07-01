@@ -4,7 +4,14 @@
 
 @section('content')
 
-    <p class="opacity-75 uppercase tracking-wider font-bold text-lg text-center mx-16 mt-4 mb-2"><i class="fa fa-file-invoice-dollar"></i> Agregar alumno titulado</p>
+    <div class="w-full flex justify-center">
+        <div class="mx-16 mt-4 mb-2 w-1/2 flex justify-between items-center">
+            <p class="opacity-75 uppercase tracking-wider font-bold text-lg"><i class="fa fa-file-invoice-dollar"></i> Agregar alumno titulado</p>
+            <div id="app">
+                <import-excel-titulados></import-excel-titulados>
+            </div>
+        </div>
+    </div>
 
     <div>
         <div class="px-2 w-full flex justify-center mb-6">

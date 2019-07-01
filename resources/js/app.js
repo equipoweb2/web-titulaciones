@@ -23,6 +23,7 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('import-excel-egresados', require('./components/ImportExcelEgresadosComponent.vue').default);
+Vue.component('import-excel-titulados', require('./components/ImportExcelTituladosComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

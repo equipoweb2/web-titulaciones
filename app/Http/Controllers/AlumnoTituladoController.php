@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Session;
 use App\AlumnoEgresado;
 use App\Sinodal;
 use App\AlumnoTituladoConSinodal;
+use Excel;
+use App\Imports\AlumnoTituladoImport;
+use App\Exceptions\TituladoExistsException;
 
 class AlumnoTituladoController extends Controller
 {
@@ -60,7 +63,7 @@ class AlumnoTituladoController extends Controller
             'edad' => 'required|max:5',
             'fecha_titulacion' => 'required|max:15|regex:/^\d{2}[-]\d{2}[-]\d{4}$/',
             'hora_titulacion' => 'nullable|max:10|regex:/^\d{2}[:]\d{2}$/',
-            'sinodales' => 'required|regex:/^[a-zA-Z ,]+$/',
+            'sinodales' => 'required|regex:/^[\s\S ,]+$/',
         ]);
         $egresado = AlumnoEgresado::where('numero_control', $request->get('numero_control'))->first();
         if (!$egresado) {
@@ -155,7 +158,7 @@ class AlumnoTituladoController extends Controller
             'edad' => 'required|max:5',
             'fecha_titulacion' => 'required|max:15|regex:/^\d{2}[-]\d{2}[-]\d{4}$/',
             'hora_titulacion' => 'nullable|max:10|regex:/^\d{2}[:]\d{2}$/',
-            'sinodales' => 'required|regex:/^[a-zA-Z ,]+$/',
+            'sinodales' => 'required|regex:/^[\s\S ,]+$/',
         ]);
         // Creación de sinodales
         $sinodalesArray = explode(',', $request->get('sinodales'));
@@ -216,5 +219,39 @@ class AlumnoTituladoController extends Controller
         Log::info('Deleted alumno titulado: '.$id);
         Session::flash('message', 'Alumno titulado borrado con éxito!');
         return redirect()->route('titulados.index');
+    }
+
+    public function importarExcel(Request $request) {
+        if (!$request->file('excel')) {
+            Session::flash('error-message', 'Por favor, selecciona un archivo Excel.');
+            return back()->withInput();
+        }
+        if (!$this->checkExcelFile($request->file('excel')->getClientOriginalExtension())) {
+            Session::flash('error-message', 'Archivo inválido. Por favor, selecciona un archivo Excel.');
+            return back()->withInput();
+        }
+        try {
+            Excel::import(new AlumnoTituladoImport, $request->file('excel'));
+        } catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
+            $failures = $e->failures();
+            $attrs = array();
+            foreach ($failures as $failure) {
+                array_push($attrs, 'Fila #'.$failure->row().': '.$failure->errors()[0]);
+            }
+            Session::flash('error-message', 'Error en la validación del archivo Excel: '.implode(' ', $attrs));
+            return back()->withInput();
+       } catch (TituladoExistsException $e) {
+            Session::flash('error-message', 'Error en la validación del archivo Excel: '.$e->getMessage());
+            return back()->withInput();
+       }
+
+        return redirect()->route('titulados.index')->with('message', 'Datos del Excel importados con éxito!');
+    }
+
+    private function checkExcelFile($file_ext){
+        $valid=array(
+            'xls', 'xlsm','xlsx' // add your extensions here.
+        );
+        return in_array($file_ext,$valid);
     }
 }

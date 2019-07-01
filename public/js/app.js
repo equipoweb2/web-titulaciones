@@ -174,6 +174,61 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ImportExcelTituladosComponent.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ImportExcelTituladosComponent.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'import-excel-titulados',
+  data: function data() {
+    return {
+      modal: false,
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+    };
+  },
+  methods: {
+    toggleModal: function toggleModal() {
+      this.modal = !this.modal;
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/chart.js/dist/Chart.js":
 /*!*********************************************!*\
   !*** ./node_modules/chart.js/dist/Chart.js ***!
@@ -33113,7 +33168,7 @@ var staticRenderFns = [
           "text-4xl text-center font-hairline md:leading-loose text-soft-black md:mt-8 mb-4"
       },
       [
-        _vm._v("Importar Excel "),
+        _vm._v("Importar Excel de Egresados "),
         _c("i", { staticClass: "fa fa-file-excel ml-1" })
       ]
     )
@@ -33129,6 +33184,191 @@ var staticRenderFns = [
           staticClass:
             "bg-blue-500 mb-6 px-2 py-1 rounded text-white hover:bg-blue-700",
           attrs: { href: "/excel/plantilla_egresados.xlsx" }
+        },
+        [_vm._v("Descargar plantilla Excel")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "flex w-full justify-between items-center mb-2 mt-2" },
+      [
+        _c("input", {
+          staticClass:
+            "bg-gray-200 focus:bg-yellow-100 hover:bg-yellow-300 px-2 py-1 w-auto leading-tight appearance-none rounded border-b-2 border-yellow",
+          attrs: { name: "excel", type: "file" }
+        }),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass:
+              "bg-green-500 px-4 py-2 rounded text-white hover:bg-green-600"
+          },
+          [
+            _vm._v("\n              Importar "),
+            _c("i", { staticClass: "fa fa-file-import ml-1" })
+          ]
+        )
+      ]
+    )
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ImportExcelTituladosComponent.vue?vue&type=template&id=77202e17&":
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ImportExcelTituladosComponent.vue?vue&type=template&id=77202e17& ***!
+  \********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "flex" }, [
+    _c(
+      "a",
+      {
+        staticClass:
+          "cursor-pointer bg-green-500 px-4 py-2 mr-2 rounded text-white hover:bg-green-600",
+        on: { click: _vm.toggleModal }
+      },
+      [
+        _vm._v("\n    Importar Excel "),
+        _c("i", { staticClass: "fa fa-file-import ml-1" })
+      ]
+    ),
+    _vm._v(" "),
+    _vm.modal
+      ? _c(
+          "div",
+          {
+            staticClass:
+              "animated fadeIn fixed z-50 inset-0 overflow-auto bg-smoke-dark flex",
+            on: {
+              click: function($event) {
+                if ($event.target !== $event.currentTarget) {
+                  return null
+                }
+                return _vm.toggleModal($event)
+              }
+            }
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "animated fadeInUp fixed shadow-inner max-w-xl md:relative top-0 inset-x-0 align-top m-auto justify-end md:justify-center p-8 bg-white md:rounded w-full md:h-auto md:shadow flex flex-col"
+              },
+              [
+                _c(
+                  "form",
+                  {
+                    attrs: {
+                      method: "POST",
+                      action: "/alumnos/titulados/importar",
+                      "accept-charset": "UTF-8",
+                      enctype: "multipart/form-data"
+                    }
+                  },
+                  [
+                    _c("input", {
+                      attrs: {
+                        type: "hidden",
+                        name: "_token",
+                        accept: "application/wps-office.xls"
+                      },
+                      domProps: { value: _vm.csrf }
+                    }),
+                    _vm._v(" "),
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _vm._m(2),
+                    _vm._v(" "),
+                    _c(
+                      "span",
+                      {
+                        staticClass: "absolute top-0 right-0 pt-4 px-4",
+                        on: { click: _vm.toggleModal }
+                      },
+                      [
+                        _c(
+                          "svg",
+                          {
+                            staticClass:
+                              "h-12 w-12 text-gray hover:text-gray-900",
+                            attrs: {
+                              role: "button",
+                              xmlns: "http://www.w3.org/2000/svg",
+                              viewBox: "0 0 20 20"
+                            }
+                          },
+                          [
+                            _c("title", [_vm._v("Close")]),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"
+                              }
+                            })
+                          ]
+                        )
+                      ]
+                    )
+                  ]
+                )
+              ]
+            )
+          ]
+        )
+      : _vm._e()
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "h2",
+      {
+        staticClass:
+          "text-4xl text-center font-hairline md:leading-loose text-soft-black md:mt-8 mb-4"
+      },
+      [
+        _vm._v("Importar Excel de Titulados "),
+        _c("i", { staticClass: "fa fa-file-excel ml-1" })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex justify-center" }, [
+      _c(
+        "a",
+        {
+          staticClass:
+            "bg-blue-500 mb-6 px-2 py-1 rounded text-white hover:bg-blue-700",
+          attrs: { href: "/excel/plantilla_titulados.xlsx" }
         },
         [_vm._v("Descargar plantilla Excel")]
       )
@@ -45333,6 +45573,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
 Vue.component('import-excel-egresados', __webpack_require__(/*! ./components/ImportExcelEgresadosComponent.vue */ "./resources/js/components/ImportExcelEgresadosComponent.vue")["default"]);
+Vue.component('import-excel-titulados', __webpack_require__(/*! ./components/ImportExcelTituladosComponent.vue */ "./resources/js/components/ImportExcelTituladosComponent.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -45478,6 +45719,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ImportExcelEgresadosComponent_vue_vue_type_template_id_322bb9cf___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ImportExcelEgresadosComponent_vue_vue_type_template_id_322bb9cf___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/ImportExcelTituladosComponent.vue":
+/*!*******************************************************************!*\
+  !*** ./resources/js/components/ImportExcelTituladosComponent.vue ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ImportExcelTituladosComponent_vue_vue_type_template_id_77202e17___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ImportExcelTituladosComponent.vue?vue&type=template&id=77202e17& */ "./resources/js/components/ImportExcelTituladosComponent.vue?vue&type=template&id=77202e17&");
+/* harmony import */ var _ImportExcelTituladosComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ImportExcelTituladosComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/ImportExcelTituladosComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ImportExcelTituladosComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ImportExcelTituladosComponent_vue_vue_type_template_id_77202e17___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ImportExcelTituladosComponent_vue_vue_type_template_id_77202e17___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/ImportExcelTituladosComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/ImportExcelTituladosComponent.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/ImportExcelTituladosComponent.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ImportExcelTituladosComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ImportExcelTituladosComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ImportExcelTituladosComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ImportExcelTituladosComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/ImportExcelTituladosComponent.vue?vue&type=template&id=77202e17&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/ImportExcelTituladosComponent.vue?vue&type=template&id=77202e17& ***!
+  \**************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ImportExcelTituladosComponent_vue_vue_type_template_id_77202e17___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ImportExcelTituladosComponent.vue?vue&type=template&id=77202e17& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ImportExcelTituladosComponent.vue?vue&type=template&id=77202e17&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ImportExcelTituladosComponent_vue_vue_type_template_id_77202e17___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ImportExcelTituladosComponent_vue_vue_type_template_id_77202e17___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

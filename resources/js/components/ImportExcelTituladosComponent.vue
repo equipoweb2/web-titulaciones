@@ -5,11 +5,11 @@
     </a>
     <div v-if="modal" @click.self="toggleModal" class="animated fadeIn fixed z-50 inset-0 overflow-auto bg-smoke-dark flex">
       <div class="animated fadeInUp fixed shadow-inner max-w-xl md:relative top-0 inset-x-0 align-top m-auto justify-end md:justify-center p-8 bg-white md:rounded w-full md:h-auto md:shadow flex flex-col">
-        <form method="POST" action="/alumnos/egresados/importar" accept-charset="UTF-8" enctype="multipart/form-data">
+        <form method="POST" action="/alumnos/titulados/importar" accept-charset="UTF-8" enctype="multipart/form-data">
         <input type="hidden" name="_token" :value="csrf" accept="application/wps-office.xls">
-        <h2 class="text-4xl text-center font-hairline md:leading-loose text-soft-black md:mt-8 mb-4">Importar Excel de Egresados <i class="fa fa-file-excel ml-1"></i></h2>
+        <h2 class="text-4xl text-center font-hairline md:leading-loose text-soft-black md:mt-8 mb-4">Importar Excel de Titulados <i class="fa fa-file-excel ml-1"></i></h2>
         <div class="flex justify-center">
-          <a href="/excel/plantilla_egresados.xlsx" class="bg-blue-500 mb-6 px-2 py-1 rounded text-white hover:bg-blue-700">Descargar plantilla Excel</a>
+          <a href="/excel/plantilla_titulados.xlsx" class="bg-blue-500 mb-6 px-2 py-1 rounded text-white hover:bg-blue-700">Descargar plantilla Excel</a>
         </div>
 
         <div class="flex w-full justify-between items-center mb-2 mt-2">
@@ -29,7 +29,7 @@
 
 <script>
     export default {
-        name: 'import-excel-egresados',
+        name: 'import-excel-titulados',
         data() {
             return {
                 modal: false,

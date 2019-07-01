@@ -27,3 +27,7 @@ Route::post('alumnos/egresados/importar', [
     'middleware'=>'auth',
     'uses'=>'AlumnoEgresadoController@importarExcel'
 ])->name('importar-egresados');
+Route::post('alumnos/titulados/importar', [
+    'middleware'=>'auth',
+    'uses'=>'AlumnoTituladoController@importarExcel'
+])->name('importar-titulados');
