@@ -1,10 +1,20 @@
-@extends('template')
+@extends('template-bg-gray')
 
 @section('title', 'Agregar alumno egresado')
 
 @section('content')
 
-    <p class="opacity-75 uppercase tracking-wider font-bold text-lg text-center mx-16 mt-4 mb-2"><i class="fa fa-file-invoice-dollar"></i> Agregar alumno egresado</p>
+    <div class="w-full flex justify-center">
+        <div class="mx-16 mt-4 mb-2 w-1/2 flex justify-between items-center">
+            <p class="opacity-75 uppercase tracking-wider font-bold text-lg"><i class="fa fa-file-invoice-dollar"></i> Agregar alumno egresado</p>
+            <div id="app">
+                <import-excel-egresados></import-excel-egresados>
+            </div>
+        </div>
+    </div>
+    @if ($errors->any())
+        {{ implode('', $errors->all('<div>:message</div>')) }}
+@endif
 
     <div>
         <div class="p-2 w-full flex justify-center mb-6">

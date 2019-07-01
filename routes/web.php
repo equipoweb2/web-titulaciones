@@ -22,3 +22,8 @@ Route::resource('carreras', 'CarreraController');
 Route::resource('generaciones', 'GeneracionController');
 Route::resource('opciones-titulacion', 'OpcionTitulacionController');
 Route::resource('periodos', 'PeriodoController');
+
+Route::post('alumnos/egresados/importar', [
+    'middleware'=>'auth',
+    'uses'=>'AlumnoEgresadoController@importarExcel'
+])->name('importar-egresados');

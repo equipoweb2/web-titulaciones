@@ -9,6 +9,8 @@ use App\Periodo;
 use App\Generacion;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Log;
+use Excel;
+use App\Imports\AlumnoEgresadoImport;
 
 class AlumnoEgresadoController extends Controller
 {
@@ -158,5 +160,36 @@ class AlumnoEgresadoController extends Controller
         Log::info('Deleted alumno egresado: '.$id);
         Session::flash('message', 'Alumno egresado borrado con éxito!');
         return redirect()->route('egresados.index');
+    }
+
+    public function importarExcel(Request $request) {
+        if (!$request->file('excel')) {
+            Session::flash('error-message', 'Por favor, selecciona un archivo Excel.');
+            return back()->withInput();
+        }
+        if (!$this->checkExcelFile($request->file('excel')->getClientOriginalExtension())) {
+            Session::flash('error-message', 'Archivo inválido. Por favor, selecciona un archivo Excel.');
+            return back()->withInput();
+        }
+        try {
+            Excel::import(new AlumnoEgresadoImport, $request->file('excel'));
+        } catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
+            $failures = $e->failures();
+            $attrs = array();
+            foreach ($failures as $failure) {
+                array_push($attrs, 'Fila #'.$failure->row().': '.$failure->errors()[0]);
+            }
+            Session::flash('error-message', 'Error en la validación del archivo Excel: '.implode(' ', $attrs));
+                return back()->withInput();
+       }
+
+        return redirect()->route('egresados.index')->with('message', 'Datos del Excel importados con éxito!');
+    }
+
+    private function checkExcelFile($file_ext){
+        $valid=array(
+            'xls', 'xlsm','xlsx' // add your extensions here.
+        );
+        return in_array($file_ext,$valid);
     }
 }

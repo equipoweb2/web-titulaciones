@@ -15,14 +15,14 @@
             <div class="flex-grow bg-gray-100">
                 @include('sections.menu')
                 @if (session('message'))
-                    <div class="flex justify-center mt-2">
+                    <div class="flex justify-center mt-2 mx-16">
                         <div class="p-2 bg-blue-700 items-center text-teal-100 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
                             <span class="font-semibold mr-2 text-left flex-auto ml-3 tracking-wide">{{ session('message') }}</span>
                         </div>
                     </div>
                 @endif
                 @if (session('error-message'))
-                    <div class="flex justify-center mt-2">
+                    <div class="flex justify-center mt-2 mx-16">
                         <div class="p-2 bg-red-700 items-center text-white leading-none lg:rounded-full flex lg:inline-flex" role="alert">
                             <span class="font-semibold mr-2 text-left flex-auto ml-3 tracking-wide">{{ session('error-message') }}</span>
                         </div>
