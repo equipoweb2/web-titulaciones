@@ -11,7 +11,7 @@ class PeriodoTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('periodos')->insert([
+        /*DB::table('periodos')->insert([
             ['nombre' => 'AG15-EN16'],
             ['nombre' => 'FEB-JUL16'],
             ['nombre' => 'AG16-EN17'],
@@ -21,6 +21,6 @@ class PeriodoTableSeeder extends Seeder
             ['nombre' => 'AG18-EN19'],
             ['nombre' => 'FEB-JUL19'],
             ['nombre' => 'AG19-EN20'],
-        ]);
+        ]);*/
     }
 }
