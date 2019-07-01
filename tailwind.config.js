@@ -23,5 +23,7 @@ module.exports = {
     fontStyle: ['responsive', 'hover', 'focus'],
     visibility: ['responsive', 'group-hover'],
   },
-  plugins: []
+  plugins: [
+    require('tailwindcss-tables')(),
+  ]
 }

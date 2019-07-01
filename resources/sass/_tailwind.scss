@@ -3,32 +3,32 @@
 @tailwind components;
 
 thead tr {
+  @apply bg-gray-300;
+}
+
+thead tr th {
+  @apply uppercase font-semibold text-gray-900 text-sm font-sans tracking-wide;
+}
+
+tbody tr {
+  @apply text-gray-900 text-base font-sans border-t-2 border-gray-300;
+}
+
+tbody {
+  tr:hover {
     @apply bg-gray-300;
   }
+}
 
-    thead tr th {
-      @apply uppercase font-semibold text-gray-900 text-sm font-sans tracking-wide;
-    }
+tr a,
+tr button {
+  @apply opacity-0;
+}
 
-    tbody tr {
-      @apply text-gray-900 text-base font-sans border-t-2 border-gray-300;
-    }
-
-    tbody {
-      tr:hover {
-        @apply bg-gray-300;
-      }
-    }
-
-    tr a,
-    tr button {
-      @apply opacity-0;
-    }
-
-    tr:hover a,
-    tr:hover button {
-      @apply opacity-100;
-    }
+tr:hover a,
+tr:hover button {
+  @apply opacity-100;
+}
 
 
 @tailwind utilities;
