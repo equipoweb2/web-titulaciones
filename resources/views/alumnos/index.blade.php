@@ -23,6 +23,8 @@
                 <tbody>
                 <?php $currentCarrera = "";
                     $colors = ['red', 'blue', 'green', 'teal', 'yellow', 'orange', 'pink', 'gray', 'indigo', 'purple'];
+                    $bgColors = ['bg-red-400', 'bg-blue-400', 'bg-green-400', 'bg-teal-400', 'bg-yellow-400', 'bg-orange-400', 'bg-pink-400', 'bg-gray-400', 'bg-indigo-400', 'bg-purple-400'];
+                    $hoverColors = ['hover:bg-red-200', 'hover:bg-blue-200', 'hover:bg-green-200', 'hover:bg-teal-200', 'hover:bg-yellow-200', 'hover:bg-orange-200', 'hover:bg-pink-200', 'hover:bg-gray-200', 'hover:bg-indigo-200', 'hover:bg-purple-200'];
                     $color = array_rand($colors);
                 ?>
 
@@ -30,16 +32,16 @@
                     @if ($currentCarrera === $row->carrera)
                     @else
                     @php $color = array_rand($colors); @endphp
-                        <tr class="pt-8 border-t-2 border-{{ $colors[$color] }}-800">
-                            <td class="text-center bg-{{ $colors[$color] }}-400">{{ $row->carrera }}</td>
-                            <td class="text-center bg-{{ $colors[$color] }}-400">Egresados</td>
-                            <td class="text-center bg-{{ $colors[$color] }}-400">Titulados</td>
-                            <td class="text-center bg-{{ $colors[$color] }}-400">Diferencia</td>
-                            <td class="text-center bg-{{ $colors[$color] }}-400">Porcentaje</td>
+                        <tr class="pt-8 border-t-2">
+                            <td class="text-center {{ $bgColors[$color] }}">{{ $row->carrera }}</td>
+                            <td class="text-center {{ $bgColors[$color] }}">Egresados</td>
+                            <td class="text-center {{ $bgColors[$color] }}">Titulados</td>
+                            <td class="text-center {{ $bgColors[$color] }}">Diferencia</td>
+                            <td class="text-center {{ $bgColors[$color] }}">Porcentaje</td>
                         </tr>
 
                     @endif
-                        <tr class="hover:bg-{{ $colors[$color] }}-200">
+                        <tr class="{{ $hoverColors[$color] }}">
                             <td class="text-center">Generación {{ $row->generacion }}</td>
                             <td class="text-center">{{ $row->egresados }}</td>
                             <td class="text-center">{{ $row->titulados }}</td>

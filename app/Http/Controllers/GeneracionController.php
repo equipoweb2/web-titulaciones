@@ -6,6 +6,7 @@ use App\Generacion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Log;
+use App\Periodo;
 
 class GeneracionController extends Controller
 {
@@ -51,11 +52,44 @@ class GeneracionController extends Controller
         $this->validate($request, [
             'nombre' => 'required|max:255|unique:generacions|regex:/^\d{4}[-]\d{4}$/'
         ]);
+        $splited = explode('-', $request->get('nombre'));
+        if ($splited[1] - $splited[0] != 5) {
+            Session::flash('error-message', 'Debe haber una diferencia de 5 entre los dos años');
+            return back()->withInput();
+        }
+        $inicio = (int) substr($splited[0], 2);
+        $this->addPeriodo( 'AG'.$this->str($inicio).'-EN'.$this->str($inicio + 1) );
+        $this->addPeriodo( 'FEB-JUL'.$this->str($inicio + 1) );
+        $this->addPeriodo( 'AG'.$this->str($inicio + 1).'-EN'.$this->str($inicio + 2) );
+        $this->addPeriodo( 'FEB-JUL'.$this->str($inicio + 2) );
+        $this->addPeriodo( 'AG'.$this->str($inicio + 2).'-EN'.$this->str($inicio + 3) );
+        $this->addPeriodo( 'FEB-JUL'.$this->str($inicio + 3) );
+        $this->addPeriodo( 'AG'.$this->str($inicio + 3).'-EN'.$this->str($inicio + 4) );
+        $this->addPeriodo( 'FEB-JUL'.$this->str($inicio + 4) );
+        $this->addPeriodo( 'AG'.$this->str($inicio + 4).'-EN'.$this->str($inicio + 5) );
+        $this->addPeriodo( 'FEB-JUL'.$this->str($inicio + 5) );
+
         $generacion = Generacion::create([
             'nombre' => $request->get('nombre')
         ]);
+
         Session::flash('message', 'Generación creada con éxito!');
         return redirect()->route('generaciones.index');
+    }
+
+    private function addPeriodo($nombre) {
+        $exists = Periodo::where('nombre', $nombre)->first();
+        if (!$exists) {
+            Periodo::create(['nombre' => $nombre ]);
+        }
+    }
+
+    private function str($num) {
+        if (strlen((string) $num) === 1) {
+            return '0'.$num;
+        } else {
+            return $num;
+        }
     }
 
     /**
@@ -94,6 +128,23 @@ class GeneracionController extends Controller
         $this->validate($request, [
             'nombre' => 'required|max:255|unique:generacions|regex:/^\d{4}[-]\d{4}$/'
         ]);
+        $splited = explode('-', $request->get('nombre'));
+        if ($splited[1] - $splited[0] != 5) {
+            Session::flash('error-message', 'Debe haber una diferencia de 5 entre los dos años');
+            return back()->withInput();
+        }
+        $inicio = (int) substr($splited[0], 2);
+        $this->addPeriodo( 'AG'.$this->str($inicio).'-EN'.$this->str($inicio + 1) );
+        $this->addPeriodo( 'FEB-JUL'.$this->str($inicio + 1) );
+        $this->addPeriodo( 'AG'.$this->str($inicio + 1).'-EN'.$this->str($inicio + 2) );
+        $this->addPeriodo( 'FEB-JUL'.$this->str($inicio + 2) );
+        $this->addPeriodo( 'AG'.$this->str($inicio + 2).'-EN'.$this->str($inicio + 3) );
+        $this->addPeriodo( 'FEB-JUL'.$this->str($inicio + 3) );
+        $this->addPeriodo( 'AG'.$this->str($inicio + 3).'-EN'.$this->str($inicio + 4) );
+        $this->addPeriodo( 'FEB-JUL'.$this->str($inicio + 4) );
+        $this->addPeriodo( 'AG'.$this->str($inicio + 4).'-EN'.$this->str($inicio + 5) );
+        $this->addPeriodo( 'FEB-JUL'.$this->str($inicio + 5) );
+
         $generacion = Generacion::find($id)->update([
             'nombre' => $request->get('nombre')
         ]);
