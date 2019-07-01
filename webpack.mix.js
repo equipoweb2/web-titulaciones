@@ -1,7 +1,6 @@
 const mix = require('laravel-mix');
 require('laravel-mix-purgecss');
-var tailwindcss = require('tailwindcss');
-let atImport = require('postcss-import');
+const tailwindcss = require('tailwindcss');
 
 /*
  |--------------------------------------------------------------------------
@@ -19,9 +18,7 @@ mix.js('resources/js/app.js', 'public/js')
     .copyDirectory('node_modules/@fortawesome/fontawesome-free/webfonts', 'public/fonts')
     .options({
        processCssUrls: false,
-       postCss: [
-           //atImport(),
-           tailwindcss('./tailwind.config.js') ],
+       postCss: [ tailwindcss('./tailwind.config.js') ],
     })
     .purgeCss({
        enabled: process.env.NODE_ENV === 'production'
